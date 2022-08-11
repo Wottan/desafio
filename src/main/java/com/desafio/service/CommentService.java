@@ -15,8 +15,15 @@ public class CommentService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	public List<Comment> getCommentss(Long postId) {
+	public List<Comment> getCommentsByPost(Long postId) {
 		Comment[] comments = restTemplate.getForObject("https://jsonplaceholder.typicode.com/comments?postId=" + postId,
+				Comment[].class);
+		List<Comment> c = Arrays.asList(comments);
+		return c;
+	}
+
+	public List<Comment> getComments() {
+		Comment[] comments = restTemplate.getForObject("https://jsonplaceholder.typicode.com/comments",
 				Comment[].class);
 		List<Comment> c = Arrays.asList(comments);
 		return c;

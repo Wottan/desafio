@@ -16,7 +16,7 @@ public class AlbumService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	public List<Album> getAlbums(Long idUser) {
+	public List<Album> getAlbumsByUser(Long idUser) {
 		ResponseEntity<Album[]> response = restTemplate
 				.getForEntity("https://jsonplaceholder.typicode.com/albums?userId=" + idUser, Album[].class);
 		Album[] albums = response.getBody();

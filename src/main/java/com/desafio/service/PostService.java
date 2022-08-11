@@ -15,7 +15,7 @@ public class PostService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	public List<Post> getPosts(Long userId) {
+	public List<Post> getPostsByUser(Long userId) {
 		Post[] posts = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts?userId=" + userId,
 				Post[].class);
 		List<Post> p = Arrays.asList(posts);
