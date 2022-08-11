@@ -1,6 +1,6 @@
 # Desafio accenture
 
-# Esta Api consume un servicio externo :https://jsonplaceholder.typicode.com/
+# Esta Api consume un servicio externo: https://jsonplaceholder.typicode.com/
 
 # Swagger - swagger-ui.html
 
