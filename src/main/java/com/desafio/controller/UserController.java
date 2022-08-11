@@ -46,10 +46,11 @@ public class UserController {
 		return new ResponseEntity<>(this.userService.getUsers(), HttpStatus.OK);
 	}
 
-	@GetMapping("/{idUser}/photo")
+	@GetMapping("/{idUser}/photos")
 	public ResponseEntity<?> getPhotos(@PathVariable(value = "idUser") Long idUser) {
 		List<Photo> photos = new ArrayList<Photo>();
-		this.albumService.getAlbums(idUser).forEach((Album a) -> photos.addAll(this.photoService.getPhotos(a.getId())));
+		this.albumService.getAlbumsByUser(idUser)
+				.forEach((Album a) -> photos.addAll(this.photoService.getPhotosByAlbum(a.getId())));
 		return new ResponseEntity<>(photos, HttpStatus.OK);
 	}
 
@@ -65,7 +66,8 @@ public class UserController {
 			}
 		};
 
-		this.postService.getPosts(userId).forEach(p -> comments.addAll(this.commentService.getCommentss(p.getId())));
+		this.postService.getPostsByUser(userId)
+				.forEach(p -> comments.addAll(this.commentService.getCommentsByPost(p.getId())));
 
 		if (name != null) {
 			filtro = (c) -> c.getName().equals(name);

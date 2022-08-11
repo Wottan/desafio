@@ -16,7 +16,7 @@ public class PhotoService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	public List<Photo> getPhotos(Long idAlbum) {
+	public List<Photo> getPhotosByAlbum(Long idAlbum) {
 		ResponseEntity<Photo[]> response = restTemplate
 				.getForEntity("https://jsonplaceholder.typicode.com/photos?albumId=" + idAlbum, Photo[].class);
 		Photo[] photos = response.getBody();
