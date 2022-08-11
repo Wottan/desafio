@@ -46,8 +46,8 @@ public class UserController {
 		return new ResponseEntity<>(this.userService.getUsers(), HttpStatus.OK);
 	}
 
-	@GetMapping("/{idUser}/photos")
-	public ResponseEntity<?> getPhotos(@PathVariable(value = "idUser") Long idUser) {
+	@GetMapping("/{userId}/photos")
+	public ResponseEntity<?> getPhotos(@PathVariable(value = "userId") Long idUser) {
 		List<Photo> photos = new ArrayList<Photo>();
 		this.albumService.getAlbumsByUser(idUser)
 				.forEach((Album a) -> photos.addAll(this.photoService.getPhotosByAlbum(a.getId())));
