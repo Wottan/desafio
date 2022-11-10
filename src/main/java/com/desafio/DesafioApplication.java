@@ -11,6 +11,7 @@ public class DesafioApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
+	
 	}
 
 	@Bean
